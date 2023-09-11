@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { actionCreator } from "../routes/store";
 import ToDo from "./ToDo";
-import { Link } from "react-router-dom";
 
 function Home({ toDos, addTodo }) {
   const [text, setText] = useState("");
@@ -29,10 +28,8 @@ function Home({ toDos, addTodo }) {
         <button>Add</button>
       </form>
       <ul>
-        {toDos.map((todo) => (
-          <Link to={`/${todo.id}`}>
-            <ToDo {...todo} key={todo.id} />
-          </Link>
+        {toDos?.map((todo) => (
+          <ToDo {...todo} key={todo.id} />
         ))}
       </ul>
     </>
