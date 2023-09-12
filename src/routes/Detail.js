@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { actionCreator } from "./store";
+import { remove } from "./store";
+
 
 function Detail({ todo, deleteTodo }) {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   console.log(ownProps);
   return {
-    deleteTodo: () => dispatch(actionCreator.deleteTodo(ownProps.id)),
+    deleteTodo: () => dispatch(remove(ownProps.id)),
   };
 };
 
